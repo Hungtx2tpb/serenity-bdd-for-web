@@ -1,6 +1,8 @@
 package bb.steps;
 
 import bb.pages.LoginPage;
+import bb.utils.DataUtils;
+import bb.utils.LoggerUtil;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.serenitybdd.annotations.Step;
@@ -12,13 +14,12 @@ public class LoginSteps extends UIInteractionSteps {
 
     @Step
     public void clickOnLoginButton(){
-        System.out.println("Driver : " + getDriver().toString());
+        LoggerUtil.initializeAndLogTime();
+        System.out.println("URL: " + DataUtils.getValueConf("webdriver.base.url"));
+        System.out.println("Thread ID: " + Thread.currentThread().getId());
         System.out.println("Driver hashCode: " + getDriver().hashCode());
-//        System.out.println("Before open: " + System.currentTimeMillis());
         loginPage.open();
-//        System.out.println("After open: " + System.currentTimeMillis());
-//        loginPage.waitForAllLoadingCompleted();
         loginPage.clickOnLoginButton();
     }
-//
+
 }

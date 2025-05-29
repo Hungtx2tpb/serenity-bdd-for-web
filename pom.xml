@@ -54,12 +54,12 @@
       <version>42.7.3</version>
     </dependency>
 
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit</artifactId>
-      <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.cucumber</groupId>-->
+<!--      <artifactId>cucumber-junit</artifactId>-->
+<!--      <version>${cucumber.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
 
     <!-- JUNIT 5 Dependencies -->
     <dependency>
@@ -186,6 +186,8 @@
       <version>2.4.0</version>
     </dependency>
 
+
+
     <dependency>
       <groupId>net.serenity-bdd</groupId>
       <artifactId>serenity-junit5</artifactId>
@@ -193,6 +195,12 @@
       <scope>test</scope>
     </dependency>
 
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-api</artifactId>-->
+<!--      <version>5.11.2</version> &lt;!&ndash; hoặc version bạn đang dùng &ndash;&gt;-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
 
   </dependencies>
 
@@ -247,8 +255,6 @@
             <include>**/*.*</include>
           </includes>
           <argLine>-Xmx512m</argLine>
-          <forkCount>1</forkCount>
-          <reuseForks>false</reuseForks>
         </configuration>
         <executions>
           <execution>

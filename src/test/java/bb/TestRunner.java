@@ -24,11 +24,11 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features/MoneyTransfer")
+@SelectClasspathResource("features")
 @ConfigurationParameter(key = "cucumber.glue", value = "bb.defs") // package step defs
 //@ConfigurationParameter(key = "cucumber.filter.tags", value = "@TC_2")
-@ConfigurationParameter(key = "cucumber.plugin", value = "pretty, io.cucumber.core.plugin.SerenityReporter")
-//@ConfigurationParameter(key = "cucumber.plugin", value = "pretty, io.cucumber.core.plugin.SerenityReporterParallel")
+//@ConfigurationParameter(key = "cucumber.plugin", value = "pretty, io.cucumber.core.plugin.SerenityReporter")
+@ConfigurationParameter(key = "cucumber.plugin", value = "pretty, io.cucumber.core.plugin.SerenityReporterParallel")
 
 public class TestRunner {
 
