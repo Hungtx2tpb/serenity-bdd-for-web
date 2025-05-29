@@ -17,8 +17,8 @@ public class HomePageDefs extends BaseStepDefs {
         loginSteps.clickOnLoginButton();
         Serenity.takeScreenshot();
 
-//        System.out.println("Driver in HomeDefs: " + driver);
-//        System.out.println("Driver hashCode in HomeDefs: " + driver.hashCode());
+        System.out.println("Driver in HomeDefs: " + driver);
+        System.out.println("Driver hashCode in HomeDefs: " + driver.hashCode());
 
 
     }

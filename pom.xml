@@ -28,6 +28,7 @@
       <version>4.17.0</version>
     </dependency>
 
+
     <!-- Serenity BDD -->
     <dependency>
       <groupId>net.serenity-bdd</groupId>
@@ -41,25 +42,12 @@
       <version>${serenity.cucumber.version}</version>
     </dependency>
 
-    <!-- Cucumber -->
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>${cucumber.version}</version>
-    </dependency>
-
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.7.3</version>
     </dependency>
 
-<!--    <dependency>-->
-<!--      <groupId>io.cucumber</groupId>-->
-<!--      <artifactId>cucumber-junit</artifactId>-->
-<!--      <version>${cucumber.version}</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
 
     <!-- JUNIT 5 Dependencies -->
     <dependency>
@@ -186,21 +174,12 @@
       <version>2.4.0</version>
     </dependency>
 
-
-
     <dependency>
       <groupId>net.serenity-bdd</groupId>
       <artifactId>serenity-junit5</artifactId>
       <version>${serenity.version}</version>
       <scope>test</scope>
     </dependency>
-
-<!--    <dependency>-->
-<!--      <groupId>org.junit.jupiter</groupId>-->
-<!--      <artifactId>junit-jupiter-api</artifactId>-->
-<!--      <version>5.11.2</version> &lt;!&ndash; hoặc version bạn đang dùng &ndash;&gt;-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
 
   </dependencies>
 
@@ -266,31 +245,6 @@
         </executions>
       </plugin>
 
-      <!-- Maven Failsafe Plugin (dùng để chạy integration test) -->
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-failsafe-plugin</artifactId>-->
-<!--        <version>3.0.0-M7</version>-->
-<!--        <configuration>-->
-<!--          <testFailureIgnore>false</testFailureIgnore>-->
-<!--          <includes>-->
-<!--            <include>**/*.*</include>-->
-<!--          </includes>-->
-<!--          <systemPropertyVariables>-->
-<!--            <cucumber.filter.tags>${cucumber.filter.tags}</cucumber.filter.tags>-->
-<!--            <cucumber.plugin>json:target/cucumber-report.json</cucumber.plugin>-->
-<!--          </systemPropertyVariables>-->
-<!--          <argLine>-Xmx512m</argLine>-->
-<!--        </configuration>-->
-<!--        <executions>-->
-<!--          <execution>-->
-<!--            <goals>-->
-<!--              <goal>integration-test</goal>-->
-<!--              <goal>verify</goal>-->
-<!--            </goals>-->
-<!--          </execution>-->
-<!--        </executions>-->
-<!--      </plugin>-->
     </plugins>
   </build>
 

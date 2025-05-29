@@ -5,6 +5,7 @@ import bb.TestRunner;
 import bb.common.BaseStepDefs;
 import bb.steps.LoginSteps;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.core.Serenity;
 
@@ -16,8 +17,17 @@ public class LoginDefs extends BaseStepDefs {
     public void userOpenEbankApp(){
         loginSteps.clickOnLoginButton();
         Serenity.takeScreenshot();
-//        System.out.println("Driver in LoginDefs: " + driver);
-//        System.out.println("Driver hashCode in LoginDefs: " + driver.hashCode());
+        System.out.println("Driver in LoginDefs: " + driver);
+        System.out.println("Driver hashCode in LoginDefs: " + driver.hashCode());
+    }
 
+    @When("middle step")
+    public void middleStep(){
+        loginSteps.middleStep();
+    }
+
+    @When("after step")
+    public void demoAfterStep(){
+        loginSteps.demoAfterStep();
     }
 }
