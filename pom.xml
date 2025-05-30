@@ -21,15 +21,15 @@
   </properties>
 
   <dependencies>
-    <!-- Selenium -->
+
+
+    <!-- SELENIUM + SERENITY BDD -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>4.17.0</version>
     </dependency>
 
-
-    <!-- Serenity BDD -->
     <dependency>
       <groupId>net.serenity-bdd</groupId>
       <artifactId>serenity-core</artifactId>
@@ -42,20 +42,14 @@
       <version>${serenity.cucumber.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>42.7.3</version>
-    </dependency>
-
-
-    <!-- JUNIT 5 Dependencies -->
+    <!-- JUNIT 5 + CUCUMBER -->
     <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-launcher</artifactId>
       <version>${junit.platform.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-suite</artifactId>
@@ -75,6 +69,20 @@
       <artifactId>cucumber-junit-platform-engine</artifactId>
       <version>${cucumber.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <!-- DATABASE -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.7.3</version>
+    </dependency>
+
+    <!-- Oracle JDBC Driver (connect DB) -->
+    <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>21.1.0.0</version>
     </dependency>
 
     <!-- Logging -->
@@ -108,12 +116,7 @@
       <version>5.2.5</version>
     </dependency>
 
-    <!-- Oracle JDBC Driver (connect DB) -->
-    <dependency>
-      <groupId>com.oracle.database.jdbc</groupId>
-      <artifactId>ojdbc8</artifactId>
-      <version>21.1.0.0</version>
-    </dependency>
+
 
     <dependency>
       <groupId>com.github.javafaker</groupId>
@@ -136,11 +139,7 @@
     </dependency>
 
     <!-- Serenity - Rest Assured integration -->
-    <dependency>
-      <groupId>net.serenity-bdd</groupId>
-      <artifactId>serenity-rest-assured</artifactId>
-      <version>${serenity.version}</version>
-    </dependency>
+
 
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -181,27 +180,18 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-edge-driver</artifactId>
+      <version>4.17.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
     <plugins>
-      <!-- Serenity Maven Plugin -->
-      <plugin>
-        <groupId>net.serenity-bdd.maven.plugins</groupId>
-        <artifactId>serenity-maven-plugin</artifactId>
-        <version>${serenity.version}</version>
-        <executions>
-          <execution>
-            <id>serenity-reports</id>
-            <phase>post-integration-test</phase>
-            <goals>
-              <goal>aggregate</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
 
-      <!-- Maven Compiler Plugin -->
+      <!-- ==================== Biên dịch Java với version 17 ==================== -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -213,7 +203,7 @@
         </configuration>
       </plugin>
 
-      <!-- Maven Surefire Plugin (bỏ qua test ở phase test) -->
+      <!-- ==================== Bỏ qua pha test (surefire) vì dùng failsafe ==================== -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -223,7 +213,7 @@
         </configuration>
       </plugin>
 
-      <!-- Maven Failsafe Plugin -->
+      <!-- ==================== Dùng failsafe để chạy test ở pha integration-test + verify ==================== -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
@@ -231,7 +221,7 @@
         <configuration>
           <testFailureIgnore>false</testFailureIgnore>
           <includes>
-            <include>**/*.*</include>
+            <include>**/*.*</include> <!-- Bao gồm tất cả các file test -->
           </includes>
           <argLine>-Xmx512m</argLine>
         </configuration>
@@ -240,6 +230,22 @@
             <goals>
               <goal>integration-test</goal>
               <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- ==================== Serenity: Tạo báo cáo sau khi test ==================== -->
+      <plugin>
+        <groupId>net.serenity-bdd.maven.plugins</groupId>
+        <artifactId>serenity-maven-plugin</artifactId>
+        <version>${serenity.version}</version>
+        <executions>
+          <execution>
+            <id>serenity-reports</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>aggregate</goal>
             </goals>
           </execution>
         </executions>
