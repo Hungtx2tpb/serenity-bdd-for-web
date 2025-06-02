@@ -43,6 +43,6 @@ jobs:
       - name: 🏁 Deploy Serenity Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.PAT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/serenity
           publish_branch: gh-pages
