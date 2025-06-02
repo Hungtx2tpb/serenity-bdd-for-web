@@ -29,10 +29,10 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: 📦 Build and Run Tests
-        run: mvn clean verify -Dcucumber.filter.tags="@test_ALTINV"
+        run: mvn clean verify
 
       - name: 📤 Upload Serenity Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: serenity-report
           path: target/site/serenity
