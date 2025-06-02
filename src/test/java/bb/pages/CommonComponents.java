@@ -7,19 +7,14 @@ import bb.utils.LoggerUtil;
 public class CommonComponents extends BasePage {
 
     public void openBrowser(String name) {
-        String url;
-        System.out.println("name: " + name);
-        switch (name) {
-            case "ALTINV":
-                url = DataUtils.getValueConf("webdriver.base.url");
-                break;
-            case "Google":
-                url = DataUtils.getValueConf("urls.gmail");
-                break;
-            default:
+        String url = switch (name) {
+            case "ALTINV" -> DataUtils.getValueConf("webdriver.base.url");
+            case "Google" -> DataUtils.getValueConf("urls.gmail");
+            default -> {
                 LoggerUtil.logError("Invalid browser configuration name: " + name);
                 throw new IllegalArgumentException("Invalid browser configuration name: " + name);
-        }
+            }
+        };
 
         if (url == null || url.trim().isEmpty()) {
             LoggerUtil.logError("URL is null or empty for configuration: " + name);
@@ -29,7 +24,6 @@ public class CommonComponents extends BasePage {
 
         try {
             openUrl(url);
-//            getDriver().get(url);
             waitForAllLoadingCompleted();
             System.out.println("Opened with browser: " + DataUtils.getValueConf("webdriver.driver") + " at URL: " + url);
         } catch (Exception e) {
