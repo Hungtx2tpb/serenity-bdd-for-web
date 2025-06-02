@@ -2,7 +2,7 @@
 Feature: Testcase_demo
 
   @TC_1 @NeedCleanup
-  Scenario: Kiem tra 1
+  Scenario: Kiem tra TC_1
    Given user opens HomePage
 
   @TC_2
