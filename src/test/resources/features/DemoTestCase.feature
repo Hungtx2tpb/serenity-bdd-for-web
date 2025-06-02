@@ -1,5 +1,5 @@
 @All
-Feature: Testcase
+Feature: Testcase_demo
 
   @TC_1 @NeedCleanup
   Scenario: Kiem tra 1
