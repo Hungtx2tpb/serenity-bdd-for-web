@@ -1,7 +1,7 @@
 @All
 Feature: Testcase
 
-  @Smoke @NeedCleanup
+  @TC_1 @NeedCleanup
   Scenario: Kiem tra 1
    Given user opens HomePage
 
