@@ -1,12 +1,12 @@
 name: Run Serenity Tests
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
   schedule:
-    - cron: '35 9 * * *'
+    - cron: '41 9 * * *'
 
 permissions:
   contents: write
